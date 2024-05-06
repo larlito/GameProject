@@ -25,13 +25,23 @@ def info_catalogs():
                 print('(непустой файл)')
 
 
-
-
-
-
 def add_book():
-    pass
+    name_book = input('Введите название новой книги >> ')
+    author_book = input(f'Введите автора книги {name_book} >> ')
+    name_catalog = input(f'Введите имя каталога в который хотите добавить книгу {name_book} >> ')
 
+    while os.path.exists(f'{name_catalog}.txt') == False:
+        name_catalog = input(f'Каталога {name_catalog} не существует\nВведите другое название >> ')
+
+
+    file = open(f'{name_catalog}.txt')
+    while f'Книга: {name_book}    Автор: {author_book}' in file.read():
+        name_book = input('Данная книга уже существует\nВведите другое название книги >> ')
+        author_book = input('Введите другого автора >> ')
+
+
+    file = open(f'{name_catalog}.txt','a')
+    file.write(f'Книга: {name_book}    Автор: {author_book} \n')
 
 def read_catalog():
     pass
@@ -44,4 +54,4 @@ def find_book():
 def delete_book():
     pass
 
-info_catalogs()
+add_book()
