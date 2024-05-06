@@ -15,7 +15,17 @@ def delete_catalog():
     pass
 
 def info_catalogs():
-    pass
+    for i in os.listdir():
+        if i.endswith('.txt'):
+            print(i, end='')
+            if os.stat(i).st_size == 0:
+                print('(пустой файл)')
+            else:
+                print('(непустой файл)')
+                
+
+
+
 
 
 def add_book():
@@ -32,4 +42,4 @@ def find_book():
 def delete_book():
     pass
 
-delete_catalog()
+info_catalogs()
