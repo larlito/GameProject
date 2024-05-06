@@ -44,7 +44,12 @@ def add_book():
     file.write(f'Книга: {name_book}    Автор: {author_book} \n')
 
 def read_catalog():
-    pass
+    name_catalog = input('Введите название каталога, который хотите прочитать >> ')
+    while os.path.exists(f'{name_catalog}.txt') == False:
+        name_catalog = input(f'Каталога {name_catalog} не существует\nВведите другое название >> ')
+    file = open(f'{name_catalog}.txt')
+    for i in file.readlines():
+        print(i, end='')
 
 
 def find_book():
@@ -54,4 +59,4 @@ def find_book():
 def delete_book():
     pass
 
-add_book()
+read_catalog()
