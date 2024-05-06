@@ -15,6 +15,7 @@ def delete_catalog():
     pass
 
 def info_catalogs():
+    print('Информация о каталогах:')
     for i in os.listdir():
         if i.endswith('.txt'):
             print(i, end='')
@@ -22,7 +23,7 @@ def info_catalogs():
                 print('(пустой файл)')
             else:
                 print('(непустой файл)')
-                
+
 
 
 
@@ -30,6 +31,7 @@ def info_catalogs():
 
 def add_book():
     pass
+
 
 def read_catalog():
     pass
